@@ -1,0 +1,24 @@
+{
+  "name": "sociallogin",
+  "version": "1.0.0",
+  "description": "Social login serer as a soft",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Social",
+    "Login"
+  ],
+  "author": "ArthuR",
+  "license": "ISC",
+  "dependencies": {
+    "duo": "^0.15.7",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-rename": "^1.2.2",
+    "gulp-sequence": "^0.4.6",
+    "gulp-spawn": "^0.3.0",
+    "gulp-uglify": "^2.0.0"
+  }
+}

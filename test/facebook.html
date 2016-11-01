@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Facebook login Test</title>
+    <base href="http://sl.arthur.com/">
+    <script src="sociallogin-snippet.min.js"></script>
+    <script type="text/javascript">
+    sociallogin.facebookInit("242270242854954");
+    </script>
+  </head>
+  <body>
+    <a href="javascript:void(0)" onclick="facebookLogin()">Login</a>
+    <div id="user" style="display: none">
+        <ul>
+            <li>ID: <span id="user-id"></span></li>
+            <li>Name: <span id="user-name"></span></li>
+            <li>Email: <span id="user-email"></span></li>
+            <li>First name: <span id="user-firstname"></span></li>
+            <li>Last name: <span id="user-lastname"></span></li>
+            <li>Gender: <span id="user-gender"></span></li>
+            <li>Picture: <img id="user-pic" src="" /></li>
+        </ul>
+    </div>
+  <script type="text/javascript">
+      function facebookLogin(){
+          sociallogin.Facebook.login(function(response){
+              if(response.status === "connected"){
+                  sociallogin.Facebook.getUser(function(response){
+                    if(response){
+                        console.log(response);
+                        document.getElementById("user-id").innerText = response.id;
+                        document.getElementById("user-name").innerText = response.name;
+                        document.getElementById("user-email").innerText = response.email;
+                        document.getElementById("user-firstname").innerText = response.first_name;
+                        document.getElementById("user-lastname").innerText = response.last_name;
+                        document.getElementById("user-gender").innerText = response.gender;
+                        document.getElementById("user-pic").src = response.picture.data.url;
+                        document.getElementById("user").style.display = "block";
+                    }
+                  });
+              }
+          }, {scope: 'public_profile,email'});
+      }
+  </script>
+  </body>
+</html>
